@@ -1,6 +1,3 @@
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -10,7 +7,7 @@ import javax.sound.sampled.Clip;
  */
 public class Sound {
 
-    public void sound (String path){
+    public Sound (String path){
         try{
             AudioInputStream audioInputStream =
                     AudioSystem.getAudioInputStream(
@@ -22,6 +19,9 @@ public class Sound {
         catch(Exception ex)
         {
         }
+    }
+    public static void main (String [] args){
+        Sound test= new Sound("media/sound/bullshit.mp3");
     }
 }
 
