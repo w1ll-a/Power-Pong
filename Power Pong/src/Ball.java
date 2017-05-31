@@ -2,6 +2,8 @@
  * Created by Mhall17162 on 5/26/2017.
  */
 
+import javafx.scene.shape.Circle;
+
 import java.awt.*;
 
 import javax.swing.JOptionPane;
@@ -47,11 +49,11 @@ public class Ball {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, WIDTH, HEIGHT);
+        return new Rectangle (x, y, WIDTH, HEIGHT);
     }
 
     public void paint(Graphics g) {
         g.setColor(Color.MAGENTA);
-        g.fillRect(x, y, WIDTH, HEIGHT);
+        g.fillOval(x, y, WIDTH, HEIGHT);
     }
 }
