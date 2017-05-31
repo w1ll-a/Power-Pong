@@ -8,10 +8,10 @@ public class Powerup {
     }
 
     public void findPowerup(String powerup){
-        if (powerup == "dSize") dSize();
+        if (powerup == "iSize") iSize();
     }
 
-    public void dSize(){
-        Racket.setHeight(Racket.getHeight() * 2);
+    public void iSize(){
+        Racket.setHeight(Racket.getHeight() + 20);
     }
 }

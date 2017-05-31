@@ -43,7 +43,7 @@ public class Racket {
         else if (keyCode == down)
             ya = 6;
         else if (keyCode == powerUp)
-            new Powerup("dSize");
+            new Powerup("iSize");
     }
 
     public void released(int keyCode) {
