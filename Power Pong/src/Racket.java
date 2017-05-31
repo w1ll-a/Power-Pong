@@ -45,8 +45,10 @@ public class Racket {
             ya = -6;
         else if (keyCode == down)
             ya = 6;
-        else if (keyCode == powerUp && count == 0)
+        else if (keyCode == powerUp && count == 0) {
             new Powerup("iSize");
+            count++;
+        }
     }
 
     public void released(int keyCode) {
