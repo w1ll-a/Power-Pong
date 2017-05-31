@@ -3,6 +3,7 @@
  */
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Racket {
     private static int width = 10, height = 60;
@@ -12,7 +13,8 @@ public class Racket {
     private int y;
     private int ya;
 
-    private int count = 0;
+    private int count1 = 0;
+    private int count2 = 0;
 
     public Racket(Pong game, int up, int down, int powerUp, int x) {
         this.game = game;
@@ -45,9 +47,13 @@ public class Racket {
             ya = -6;
         else if (keyCode == down)
             ya = 6;
-        else if (keyCode == powerUp && count == 0) {
-            new Powerup("iSize");
-            count++;
+        else if (keyCode == KeyEvent.VK_LEFT && count1 == 0) {
+            new Powerup("iSize2");
+            count1++;
+        }
+        else if (keyCode == KeyEvent.VK_A && count2 == 0) {
+            new Powerup("iSize1");
+            count2++;
         }
     }
 

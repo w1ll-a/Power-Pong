@@ -13,7 +13,7 @@ import javax.swing.Timer;
 public class PongPanel extends JPanel implements ActionListener, KeyListener {
     private Pong game;
     private Ball ball;
-    private Racket player1, player2;
+    static Racket player1, player2;
     private int score1, score2;
 
     public PongPanel(Pong game) {
