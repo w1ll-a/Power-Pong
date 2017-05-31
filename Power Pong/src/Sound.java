@@ -21,7 +21,7 @@ public class Sound {
         }
     }
     public static void main (String [] args){
-        Sound test= new Sound("media/sound/bullshit.mp3");
+        Sound test= new Sound("media/sound/bullshit.wav");
     }
 }
 
