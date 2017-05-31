@@ -9,7 +9,10 @@ public class Racket {
     private Pong game;
     private int up, down, powerUp;
     private int x;
-    private int y, ya;
+    private int y;
+    private int ya;
+
+    private int count = 0;
 
     public Racket(Pong game, int up, int down, int powerUp, int x) {
         this.game = game;
@@ -42,7 +45,7 @@ public class Racket {
             ya = -6;
         else if (keyCode == down)
             ya = 6;
-        else if (keyCode == powerUp)
+        else if (keyCode == powerUp && count == 0)
             new Powerup("iSize");
     }
 
