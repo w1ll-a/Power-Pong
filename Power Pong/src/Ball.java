@@ -48,6 +48,11 @@ public class Ball {
             xa = -xa;
     }
 
+    public void speedUp(){
+        xa++;
+        ya++;
+    }
+
     public Rectangle getBounds() {
         return new Rectangle (x, y, WIDTH, HEIGHT);
     }
