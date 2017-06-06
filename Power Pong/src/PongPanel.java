@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -15,9 +16,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     private Ball ball;
     static Racket player1, player2;
     private int score1, score2;
+    private BufferedImage b;
 
     public PongPanel(Pong game) {
-        setBackground(Color.CYAN);
+        //this.b = ImageLoader.loadImage("/media/images/magenta-flower-wallpaper.jpg");
+        setBackground(Color.green);
         this.game = game;
         ball = new Ball(game);
         player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, game.getWidth() - 36, this);
@@ -83,10 +86,12 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawString(game.getPanel().getScore(1) + " : " + game.getPanel().getScore(2), game.getWidth() / 2, 10);
+        g.drawImage(b, 0, 0, null);
         ball.paint(g);
         player1.paint(g);
         player2.paint(g);
     }
+<<<<<<< HEAD
 
     public Racket getRacketOne(){
         return player1;
@@ -96,3 +101,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         return player2;
     }
 }
+=======
+}
+
+>>>>>>> origin/master
