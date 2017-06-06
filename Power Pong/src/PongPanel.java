@@ -20,11 +20,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
     public PongPanel(Pong game) {
         //this.b = ImageLoader.loadImage("/media/images/magenta-flower-wallpaper.jpg");
-        setBackground(Color.green);
+        setBackground(Color.pink);
         this.game = game;
         ball = new Ball(game);
-        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, game.getWidth() - 36, this);
-        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, 20, this);
+        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, game.getWidth() - 36, this);
+        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, 20, this);
         Timer timer = new Timer(5, this);
         timer.start();
         addKeyListener(this);
@@ -39,10 +39,18 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     }
 
     public void increaseScore(int playerNo) {
-        if (playerNo == 1)
+        if (playerNo == 1) {
             score2++;
-        else
+            Ball.speedUp2();
+            if (score2 == 3 || score2 == 7)
+                Powerup.iSize1();
+        }
+        else {
             score1++;
+            Ball.speedUp1();
+            if (score1 == 3 || score1 == 7)
+                Powerup.iSize2();
+        }
     }
 
     public void resetScore(){

@@ -9,7 +9,7 @@ public class Racket {
     private static int width = 10;
     public int height = 60;
     private Pong game;
-    private int up, down, powerUp;
+    private int up, down;
     private int x;
     private int y;
     private int ya;
@@ -19,13 +19,12 @@ public class Racket {
 
     private PongPanel p;
 
-    public Racket(Pong game, int up, int down, int powerUp, int x, PongPanel p) {
+    public Racket(Pong game, int up, int down, int x, PongPanel p) {
         this.game = game;
         this.x = x;
         y = game.getHeight() / 2;
         this.up = up;
         this.down = down;
-        this.powerUp = powerUp;
         this.p = p;
     }
 
@@ -51,14 +50,6 @@ public class Racket {
             ya = -6;
         else if (keyCode == down)
             ya = 6;
-        else if (keyCode == KeyEvent.VK_LEFT && count1 == 0) {
-            new Powerup("iSize2", p.getRacketOne(), p.getRacketTwo());
-            count1++;
-        }
-        else if (keyCode == KeyEvent.VK_A && count2 == 0) {
-            new Powerup("iSize1", p.getRacketOne(), p.getRacketTwo());
-            count2++;
-        }
     }
 
     public void released(int keyCode) {
