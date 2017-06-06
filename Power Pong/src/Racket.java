@@ -6,7 +6,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Racket {
-    private static int width = 10, height = 60;
+    private static int width = 10;
+    public int height = 60;
     private Pong game;
     private int up, down, powerUp;
     private int x;
@@ -16,13 +17,16 @@ public class Racket {
     private int count1 = 0;
     private int count2 = 0;
 
-    public Racket(Pong game, int up, int down, int powerUp, int x) {
+    private PongPanel p;
+
+    public Racket(Pong game, int up, int down, int powerUp, int x, PongPanel p) {
         this.game = game;
         this.x = x;
         y = game.getHeight() / 2;
         this.up = up;
         this.down = down;
         this.powerUp = powerUp;
+        this.p = p;
     }
 
     public void update() {
@@ -34,11 +38,11 @@ public class Racket {
             y=game.getHeight()- height - 30;
     }
 
-    public static void setHeight(int newHeight){
+    public void setHeight(int newHeight){
         height = newHeight;
     }
 
-    public static int getHeight(){
+    public int getHeight(){
         return height;
     }
 
@@ -48,11 +52,11 @@ public class Racket {
         else if (keyCode == down)
             ya = 6;
         else if (keyCode == KeyEvent.VK_LEFT && count1 == 0) {
-            new Powerup("iSize2");
+            new Powerup("iSize2", p.getRacketOne(), p.getRacketTwo());
             count1++;
         }
         else if (keyCode == KeyEvent.VK_A && count2 == 0) {
-            new Powerup("iSize1");
+            new Powerup("iSize1", p.getRacketOne(), p.getRacketTwo());
             count2++;
         }
     }

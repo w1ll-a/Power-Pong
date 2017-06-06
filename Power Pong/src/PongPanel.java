@@ -20,8 +20,8 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         setBackground(Color.CYAN);
         this.game = game;
         ball = new Ball(game);
-        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, game.getWidth() - 36);
-        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, 20);
+        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, game.getWidth() - 36, this);
+        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, 20, this);
         Timer timer = new Timer(5, this);
         timer.start();
         addKeyListener(this);
@@ -76,7 +76,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     }
 
     public void keyTyped(KeyEvent e) {
-        ;
+         ;
     }
 
     @Override
@@ -86,5 +86,13 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         ball.paint(g);
         player1.paint(g);
         player2.paint(g);
+    }
+
+    public Racket getRacketOne(){
+        return player1;
+    }
+
+    public Racket getRacketTwo(){
+        return player2;
     }
 }
