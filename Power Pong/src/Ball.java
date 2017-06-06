@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Ball {
     private static final int WIDTH = 20, HEIGHT = 20;
     private Pong game;
-    private int x, y, xa = 3, ya = 3;
+    private static int x, y, xa = 3, ya = 3;
 
     public Ball(Pong game) {
         this.game = game;
@@ -48,9 +48,14 @@ public class Ball {
             xa = -xa;
     }
 
-    public void speedUp(){
+    public static void speedUp1(){
         xa++;
         ya++;
+    }
+
+    public static void speedUp2(){
+        xa--;
+        ya--;
     }
 
     public Rectangle getBounds() {
