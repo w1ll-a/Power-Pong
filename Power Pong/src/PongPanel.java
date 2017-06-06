@@ -91,7 +91,6 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         player1.paint(g);
         player2.paint(g);
     }
-<<<<<<< HEAD
 
     public Racket getRacketOne(){
         return player1;
@@ -101,7 +100,3 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         return player2;
     }
 }
-=======
-}
-
->>>>>>> origin/master
