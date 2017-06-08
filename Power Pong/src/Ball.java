@@ -1,9 +1,3 @@
-/**
- * Created by Mhall17162 on 5/26/2017.
- */
-
-import javafx.scene.shape.Circle;
-
 import java.awt.*;
 
 import javax.swing.JOptionPane;
@@ -11,7 +5,8 @@ import javax.swing.JOptionPane;
 public class Ball {
     private static final int WIDTH = 20, HEIGHT = 20;
     private Pong game;
-    private int x, y, xa = 3, ya = 3;
+    private static final int VELO = 3;
+    private static int x, y, xa = VELO, ya = VELO;
 
     public Ball(Pong game) {
         this.game = game;
@@ -44,8 +39,29 @@ public class Ball {
 
 
     public void checkCollision() {
-        if (game.getPanel().getPlayer(1).getBounds().intersects(getBounds()) || game.getPanel().getPlayer(2).getBounds().intersects(getBounds()))
+        if (game.getPanel().getPlayer(1).getBounds().intersects(getBounds())){
             xa = -xa;
+            speedUp2();
+        }
+        if (game.getPanel().getPlayer(2).getBounds().intersects(getBounds())) {
+            xa = -xa;
+            speedUp1();
+        }
+    }
+
+    public static void resetSpeed() {
+        xa = VELO;
+        ya = VELO;
+    }
+
+    public static void speedUp1(){
+        xa++;
+        //ya++;
+    }
+
+    public static void speedUp2(){
+        xa--;
+        //ya--;
     }
 
     public Rectangle getBounds() {
@@ -53,7 +69,7 @@ public class Ball {
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.MAGENTA);
+        g.setColor(new Color(0, 0, 128));
         g.fillOval(x, y, WIDTH, HEIGHT);
     }
 }

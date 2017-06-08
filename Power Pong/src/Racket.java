@@ -3,24 +3,29 @@
  */
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Racket {
-    private static int width = 10, height = 60;
+    private static int width = 10;
+    public int height = 60;
     private Pong game;
-    private int up, down, powerUp;
+    private int up, down;
     private int x;
     private int y;
     private int ya;
 
-    private int count = 0;
+    private int count1 = 0;
+    private int count2 = 0;
 
-    public Racket(Pong game, int up, int down, int powerUp, int x) {
+    private PongPanel p;
+
+    public Racket(Pong game, int up, int down, int x, PongPanel p) {
         this.game = game;
         this.x = x;
         y = game.getHeight() / 2;
         this.up = up;
         this.down = down;
-        this.powerUp = powerUp;
+        this.p = p;
     }
 
     public void update() {
@@ -32,23 +37,23 @@ public class Racket {
             y=game.getHeight()- height - 30;
     }
 
-    public static void setHeight(int newHeight){
+    public void setHeight(int newHeight){
         height = newHeight;
     }
 
-    public static int getHeight(){
+    public void iHeight(){
+        height += 20;
+    }
+
+    public int getHeight(){
         return height;
     }
 
     public void pressed(int keyCode) {
         if (keyCode == up)
-            ya = -6;
+            ya = -4;
         else if (keyCode == down)
-            ya = 6;
-        else if (keyCode == powerUp && count == 0) {
-            new Powerup("iSize");
-            count++;
-        }
+            ya = 4;
     }
 
     public void released(int keyCode) {

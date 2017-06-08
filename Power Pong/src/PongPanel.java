@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -13,15 +14,17 @@ import javax.swing.Timer;
 public class PongPanel extends JPanel implements ActionListener, KeyListener {
     private Pong game;
     private Ball ball;
-    private Racket player1, player2;
+    static Racket player1, player2;
     private int score1, score2;
+    //private BufferedImage b;
 
     public PongPanel(Pong game) {
-        setBackground(Color.CYAN);
+        //this.b = ImageLoader.loadImage("/media/images/magenta-flower-wallpaper.jpg");
+        setBackground(new Color(138,43,226));
         this.game = game;
         ball = new Ball(game);
-        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, game.getWidth() - 36);
-        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, 20);
+        player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, game.getWidth() - 36, this);
+        player2 = new Racket(game, KeyEvent.VK_W, KeyEvent.VK_S, 20, this);
         Timer timer = new Timer(5, this);
         timer.start();
         addKeyListener(this);
@@ -36,15 +39,20 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     }
 
     public void increaseScore(int playerNo) {
-        if (playerNo == 1)
+        if (playerNo == 1) {
             score2++;
-        else
+            Ball.resetSpeed();
+        }
+        else {
             score1++;
+            Ball.resetSpeed();
+        }
     }
 
     public void resetScore(){
         score1=0;
         score2=0;
+        Ball.resetSpeed();
     }
 
     public int getScore(int playerNo) {
@@ -76,15 +84,24 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     }
 
     public void keyTyped(KeyEvent e) {
-        ;
+         ;
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawString(game.getPanel().getScore(1) + " : " + game.getPanel().getScore(2), game.getWidth() / 2, 10);
+        //g.drawImage(b, 0, 0, null);
         ball.paint(g);
         player1.paint(g);
         player2.paint(g);
+    }
+
+    public Racket getRacketOne(){
+        return player1;
+    }
+
+    public Racket getRacketTwo(){
+        return player2;
     }
 }
