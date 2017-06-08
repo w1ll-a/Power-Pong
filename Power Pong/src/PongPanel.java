@@ -52,6 +52,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     public void resetScore(){
         score1=0;
         score2=0;
+        Ball.resetSpeed();
     }
 
     public int getScore(int playerNo) {

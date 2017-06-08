@@ -5,7 +5,8 @@ import javax.swing.JOptionPane;
 public class Ball {
     private static final int WIDTH = 20, HEIGHT = 20;
     private Pong game;
-    private static int x, y, xa = 3, ya = 3;
+    private static final int VELO = 3;
+    private static int x, y, xa = VELO, ya = VELO;
 
     public Ball(Pong game) {
         this.game = game;
@@ -40,6 +41,11 @@ public class Ball {
     public void checkCollision() {
         if (game.getPanel().getPlayer(1).getBounds().intersects(getBounds()) || game.getPanel().getPlayer(2).getBounds().intersects(getBounds()))
             xa = -xa;
+    }
+
+    public static void resetSpeed() {
+        xa = VELO;
+        ya = VELO;
     }
 
     public static void speedUp1(){
