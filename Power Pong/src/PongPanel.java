@@ -20,7 +20,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
 
     public PongPanel(Pong game) {
         //this.b = ImageLoader.loadImage("/media/images/magenta-flower-wallpaper.jpg");
-        setBackground(Color.pink);
+        setBackground(new Color(138,43,226));
         this.game = game;
         ball = new Ball(game);
         player1 = new Racket(game, KeyEvent.VK_UP, KeyEvent.VK_DOWN, game.getWidth() - 36, this);
@@ -41,11 +41,11 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     public void increaseScore(int playerNo) {
         if (playerNo == 1) {
             score2++;
-            Ball.speedUp2();
+            Ball.resetSpeed();
         }
         else {
             score1++;
-            Ball.speedUp1();
+            Ball.resetSpeed();
         }
     }
 

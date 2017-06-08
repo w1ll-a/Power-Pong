@@ -39,8 +39,14 @@ public class Ball {
 
 
     public void checkCollision() {
-        if (game.getPanel().getPlayer(1).getBounds().intersects(getBounds()) || game.getPanel().getPlayer(2).getBounds().intersects(getBounds()))
+        if (game.getPanel().getPlayer(1).getBounds().intersects(getBounds())){
             xa = -xa;
+            speedUp2();
+        }
+        if (game.getPanel().getPlayer(2).getBounds().intersects(getBounds())) {
+            xa = -xa;
+            speedUp1();
+        }
     }
 
     public static void resetSpeed() {
@@ -50,12 +56,12 @@ public class Ball {
 
     public static void speedUp1(){
         xa++;
-        ya++;
+        //ya++;
     }
 
     public static void speedUp2(){
         xa--;
-        ya--;
+        //ya--;
     }
 
     public Rectangle getBounds() {
@@ -63,7 +69,7 @@ public class Ball {
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.MAGENTA);
+        g.setColor(new Color(0, 0, 128));
         g.fillOval(x, y, WIDTH, HEIGHT);
     }
 }
