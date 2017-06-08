@@ -10,7 +10,7 @@ public class Pong extends JFrame {
 
     public Pong() {
         setSize(WIDTH, HEIGHT);
-        setTitle("Pong");
+        setTitle("Mike did nothing");
         setBackground(Color.WHITE);
         setResizable(false);
         setVisible(true);
