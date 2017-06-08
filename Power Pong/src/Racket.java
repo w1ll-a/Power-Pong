@@ -41,6 +41,10 @@ public class Racket {
         height = newHeight;
     }
 
+    public void iHeight(){
+        height += 20;
+    }
+
     public int getHeight(){
         return height;
     }

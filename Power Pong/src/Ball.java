@@ -1,9 +1,3 @@
-/**
- * Created by Mhall17162 on 5/26/2017.
- */
-
-import javafx.scene.shape.Circle;
-
 import java.awt.*;
 
 import javax.swing.JOptionPane;

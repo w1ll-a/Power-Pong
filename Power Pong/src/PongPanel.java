@@ -16,7 +16,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     private Ball ball;
     static Racket player1, player2;
     private int score1, score2;
-    private BufferedImage b;
+    //private BufferedImage b;
 
     public PongPanel(Pong game) {
         //this.b = ImageLoader.loadImage("/media/images/magenta-flower-wallpaper.jpg");
@@ -42,14 +42,10 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
         if (playerNo == 1) {
             score2++;
             Ball.speedUp2();
-            if (score2 == 3 || score2 == 7)
-                Powerup.iSize1();
         }
         else {
             score1++;
             Ball.speedUp1();
-            if (score1 == 3 || score1 == 7)
-                Powerup.iSize2();
         }
     }
 
@@ -94,7 +90,7 @@ public class PongPanel extends JPanel implements ActionListener, KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawString(game.getPanel().getScore(1) + " : " + game.getPanel().getScore(2), game.getWidth() / 2, 10);
-        g.drawImage(b, 0, 0, null);
+        //g.drawImage(b, 0, 0, null);
         ball.paint(g);
         player1.paint(g);
         player2.paint(g);
