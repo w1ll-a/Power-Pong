@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Ball {
     private static final int WIDTH = 20, HEIGHT = 20;
     private Pong game;
-    private static final int VELO = 3;
+    private static final int VELO = 4;
     private static int x, y, xa = VELO, ya = VELO;
 
     public Ball(Pong game) {
